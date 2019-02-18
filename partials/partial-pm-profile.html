@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="row" style="padding:40px 0 40px 0px;">
+        <div class="col-md-12">
+            <div class="header">
+                <img class="animated center-block" ng-src="{{user.avatarUrl}}" peck-uuid="user.uuid" alt="Peck" peck-bird peck-callback="callbackForPeckUser()" hm-double-tap="dblTouchMe"/>
+                <div id="bubble-area"></div>
+
+                <h1 class="text-center">{{user.contact.firstName}} {{user.contact.lastName}}</h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1" >
+            <div class="jumbotron intro-section-0">
+                <div ng-show="pecks == 0" class="animated fadeIn ng-hide">
+                    <h3 class="text-center">Peck is a quick way to say "Hey" or "What are you up to?"</h3>
+                    <h3 ng-show="!showSignin" class="animated fadeIn text-center color-orange">Peck {{user.contact.firstName}} to get in touch!</h3>
+                    <h3 ng-show="showSignin" class="animated fadeIn text-center color-orange">You need to sign in so {{user.contact.firstName}} knows who you are.</h3>
+                    <div ng-show="showSignin" class="animated fadeIn text-center">
+                        <a class="btn btn-primary" ng-click="login()">Sign In</a>
+                    </div>
+                </div>
+                <div ng-show="pecks > 0" class="animated fadeIn ng-hide">
+                    <p class="text-center">Peck {{user.contact.firstName}} as much as you like.</p>
+                    <p class="text-center">When you're done, check out your <a ui-sref="pm-account">account page</a> to see who has Pecked you.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

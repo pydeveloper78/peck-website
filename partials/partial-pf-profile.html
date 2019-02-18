@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="row" style="padding:40px 0 20px 0px;">
+        <div class="col-md-8 col-md-offset-2">
+            <img class="animated center-block" ng-src="{{friend.avatarUrl}}" alt="Peck" peck-bird peck-uuid="friend.uuid" />
+            <h1 class="text-center">{{friend.contact.firstName}} {{friend.contact.lastName}}</h1>
+            <div class="form-group text-center" ng-bind="friend.statusMessage"></div>
+            <div class="form-group text-center">
+                <button class="btn btn-primary" ng-click="reply()">Reply</button>
+                <button class="btn btn-primary" ng-click="addToFlock()">Add to Flock</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" style="margin-top: 10px;">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-primary">
+                <div class="panel-heading"><h3 class="panel-title">Pecks</h3></div>
+                <div class="panel-body">
+
+                    <table class="table table-valign-middle">
+                        <thead>
+                            <tr>
+                                <th>Location</th>
+                                <th>Time</th>
+                                <th>Count</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="peck in pecks.slice().reverse() | orderBy:'date':true">
+                                <td>{{peck.location.name}}</td>
+                                <td>{{peck.timesince}}</td>
+                                <td>{{peck.count}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

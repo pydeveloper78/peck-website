@@ -1,0 +1,84 @@
+<div class="container">
+
+    <div class="row" style="margin-top: 30px;">
+        <div class="col-md-6 col-md-offset-3">
+            <div style="padding-bottom:25px;" ng-controller="UserListController">
+                <h3>Who's Here?</h3>
+                <ul class="list-inline">
+                    <li ng-repeat="user in users">
+                        <img ng-src="{{user.avatarUrl}}" alt="{{user.contact.firstName}} {{user.contact.lastName}}" title="{{user.contact.firstName}} {{user.contact.lastName}}" style="width: 64px;" />
+                    </li>
+                </ul>
+            </div>
+
+            <div class="panel panel-primary" ng-controller="ChatController">
+                <div class="panel-heading"><h3 class="panel-title">{{flock.name}}</h3></div>
+                <div class="panel-body">
+                    <ul class="chat" id="chat">
+                        <li class="clearfix message" ng-repeat="message in messages">
+                            <div ng-if="(message.type == 'message') && (message.user.uuid == user.uuid)">
+                                <div ng-controller="MessageController">
+                                    <span class="chat-img pull-right">
+                                        <img ng-src="{{message.user.avatarUrl}}" alt="User Avatar" class="img-circle avatar" />
+                                    </span>
+                                    <div class="chat-body right clearfix">
+                                        <p>
+                                            <small class="text-muted message-time"><span class="glyphicon glyphicon-time"></span> <span am-time-ago="message.dateSent"></span></small>
+                                            <strong class="pull-right primary-font">{{message.user.contact.firstName}} {{message.user.contact.lastName}}</strong>
+                                        </p>
+                                        <p>{{message.messageText}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div ng-if="(message.type == 'message') && !(message.user.uuid == user.uuid)">
+                                <div ng-controller="MessageController">
+                                    <span class="chat-img pull-left">
+                                        <img ng-src="{{message.user.avatarUrl}}" alt="User Avatar" class="img-circle avatar" />
+                                    </span>
+                                    <div class="chat-body left clearfix">
+                                        <p>
+                                            <strong class="primary-font">{{message.user.contact.firstName}} {{message.user.contact.lastName}}</strong>
+                                            <small class="pull-right text-muted"><span class="glyphicon glyphicon-time"></span> <span am-time-ago="message.dateSent"></span></small>
+                                        </p>
+                                        <p>{{message.messageText}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div ng-if="message.type == 'stack'">
+                                <div ng-controller="StackController" >
+                                    <div ng-if="stack.assets.length > 1">
+                                        <carousel interval="-1">
+                                            <slide ng-repeat="slide in slides" active="slide.active">
+                                                <img ng-src="http://qa.peck.me:8080/api/v5/assets/thumb/{{slide.uuid}}/608x608.jpg" alt="{{stack.location.name}}" class="img-responsive inline-block center-block">
+                                                <div class="carousel-caption">{{stack.location.name}}</div>
+                                            </slide>
+                                        </carousel>
+                                    </div>
+                                    <div ng-if="stack.assets.length == 1" class="stack">
+                                        <img ng-src="http://qa.peck.me:8080/api/v5/assets/thumb/{{stack.assets[0].uuid}}/608x608.jpg" class="img-responsive inline-block" alt="{{stack.location.name}}"/>
+                                        <div class="caption post-stack">
+                                            <p><strong>{{stack.location.name}}</strong><p>
+                                            <p>{{timesince}}</p> 
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="panel-footer">
+                    <form ng-submit='publish()'>
+                        <div class="input-group">
+                            <input id="btn-input" type="text" class="form-control input-sm" ng-model='newMessage' placeholder="Type your message here..." />
+                            <span class="input-group-btn">
+                                <input class="btn btn-warning btn-sm" id="btn-chat"  type="submit" value="Send">
+                            </span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>

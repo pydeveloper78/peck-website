@@ -1,0 +1,375 @@
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    font-family: "Helvetica Neue", sans-serif;
+}
+
+a:link,
+a:visited,
+a:hover,
+a:active {
+    color: #FF7A6D;
+}
+
+.center {
+    margin: 0 auto;
+    max-width: 1000px;
+}
+
+.appinfo {
+    background-color: #222334;
+    padding-top: 70px;
+    color: white;
+    padding-bottom: 70px;
+}
+
+.appinfo .center {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.appinfo .iconandname {
+    text-align: center;
+    float: left;
+    width: 300px;
+    margin-left: 60px;
+}
+.appinfo .novideo {
+    float: none;
+    width: auto;
+    margin-left: 0;
+}
+
+.appinfo .iconandname h1 {
+    letter-spacing: 0.05em;
+    margin-bottom: 0;
+}
+
+.appinfo .iconandname h3 {
+    color: #A7A9AB;
+    font-weight: normal;
+    margin-top: 6px;
+}
+
+.appinfo .iconandname a:link,
+.appinfo .iconandname a:visited,
+.appinfo .iconandname a:hover,
+.appinfo .iconandname a:active
+{
+    color: white;
+    text-decoration: none;
+}
+
+.appinfo .iconandname .icon {
+    width: 250px;
+}
+
+.appinfo .iconandname .store {
+    width: 250px;
+    margin-top: 16px;
+}
+
+.appinfo .video {
+    /*background-color: #eee;*/
+    margin-left: 100px;
+    min-height: 460px;
+    float: left;
+    margin-top: 12px;
+    width: 250px;
+}
+
+.appinfo .video iframe {
+    width: 100%;
+    height: 460px;
+}
+
+.hero {
+    background-color: #ddd;
+    padding: 15px 0;
+    text-align: center;
+    color: #222334;
+}
+
+.hero h2 {
+	font-style: italic;
+    font-size: 1.2em;
+}
+
+.hero h3 {
+	max-width: 800px;
+	text-align: right;
+	padding-right: 30px;
+	font-size: 1.0em;
+}
+
+.features {
+    color: #000;
+    max-width: 800px;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+
+.features article {
+    margin-top: 40px;
+}
+
+.features img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.features .f-img {
+    width: 33.33%;
+    padding: 30px 20px;
+    float: left;
+}
+
+.features .f-img img {
+    border: 1px solid #bbb;
+}
+
+.features .f-info {
+    width: 66.66%;
+    padding: 30px 30px;
+    padding-top: 60px;
+    float: left;
+}
+
+.features .f-info h3 {
+    color: #FF7A6D;
+}
+
+.features .f-img-right .f-img {
+    float: right;
+}
+
+.features .attribution {
+    -webkit-column-count: 2;
+    -moz-column-count: 2;
+    -o-column-count: 2;
+    -ms-column-count: 2;
+    column-count: 2;
+    -webkit-column-gap: 2em;
+    -moz-column-gap: 2em;
+    -o-column-gap: 2em;
+    -ms-column-gap: 2em;
+    column-gap: 2em;
+}
+
+.features .attribution p {
+    margin-top: 0;
+}
+
+.features.support article {
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+.features.support article > h3,
+.features.support article > p {
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.iphone-footer-banner {
+	text-align: center;
+	margin: 0 auto;
+	padding: 40px 0;
+	margin-top: 40px;
+}
+.iphone-footer-banner .store{
+	width: 250px;
+}
+
+.presskit {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.presskit p a{
+    background-color: #FF7A6D;
+    display: inline-block;
+    padding: 10px 20px;
+    color: white;
+    border-radius: 60px;
+    text-decoration: none;
+    margin-top: 20px;
+}
+
+footer {
+    background-color: #888;
+    color: white;
+    padding: 40px 0 20px 0;
+    text-align: center;
+    margin-top: 50px;
+}
+
+footer a:link,
+footer a:visited,
+footer a:hover,
+footer a:active
+{
+    color: white;
+}
+
+footer .trademark {
+	color: #d9d9d9;
+	font-size: 0.9rem;
+	padding: 0 20px;
+}
+
+.support article h3 {
+	margin-bottom: 0.5em;
+}
+.support article p {
+	margin-top: 0;
+	margin-bottom: 3em;
+}
+
+
+@media screen and (max-width: 780px) {
+    .appinfo .iconandname {
+        margin-left: 60px;
+    }
+	.appinfo .novideo {
+		margin-left: 0;
+	}
+
+	
+
+    .appinfo .video {
+        margin-left: 70px;
+    }
+
+    .features {
+        max-width: 700px;
+    }
+
+    .features .f-img {
+        padding: 30px 20px 30px 30px;
+    }
+
+    .features .f-info {
+        padding: 30px 30px 30px 20px;
+        padding-top: 60px;
+    }
+
+    .features .f-img-right .f-img {
+        padding: 30px 30px 30px 20px;
+    }
+
+    .features .f-img-right .f-info {
+        padding: 30px 20px 30px 30px;
+        padding-top: 60px;
+    }
+}
+
+@media screen and (max-width: 710px) {
+    .appinfo .iconandname {
+        float: none;
+        width: 100%;
+        margin-left: 0;
+    }
+	
+    .appinfo .video {
+        margin-left: 0;
+        float: none;
+        margin: 0 auto;
+        margin-top: 70px;
+    }
+}
+
+@media screen and (max-width: 610px) {
+    .appinfo {
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+
+    .appinfo .iconandname .icon {
+       width: 180px;
+    }
+    .appinfo .iconandname .store {
+        width: 180px;
+        margin-top: 20px;
+    }
+
+    .hero h2 {
+       font-size: 1.0em;
+    }
+	
+	.hero h3 {
+		text-align: center;
+		font-size: 0.8em;
+	}
+	
+    .features article {
+        margin-top: 50px;
+    }
+
+    .features .f-img {
+        width: 80%;
+        float: none;
+        margin: 0 auto;
+        padding: 0;
+    }
+
+    .features .f-info {
+        width: 80%;
+        float: none;
+        margin: 0 auto;
+        padding: 0;
+    }
+
+    .features .f-img-right .f-img {
+        float: none;
+    }
+
+    .features .f-img-right .f-img {
+        padding: 0;
+        float: none;
+    }
+
+    .features .f-img-right .f-info {
+        padding: 0;
+        float: none;
+    }
+
+    .feature2 {
+        background-color: #eee;
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+
+    .features .attribution{
+        width: 90%;
+        margin: 0 auto;
+        /*background-color: red;*/
+        word-wrap: break-word;
+    }
+
+    .features .attribution {
+        -webkit-column-count: 1; /* Chrome, Safari, Opera */
+        -moz-column-count: 1; /* Firefox */
+        column-count: 1;
+        -webkit-column-gap: 2em;
+        -moz-column-gap: 2em;
+        -o-column-gap: 2em;
+        -ms-column-gap: 2em;
+        column-gap: 2em;
+    }
+
+    .features.support article {
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+		
+	.iphone-footer-banner .store{
+		width: 180px;
+	}
+	
+	footer .trademark {
+		font-size: 0.8rem;
+	}
+}

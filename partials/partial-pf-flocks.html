@@ -1,0 +1,141 @@
+<div class="container">
+    <ul class="nav nav-tabs">
+        <li role="presentation"><a ui-sref="pf-home">Home</a></li>
+        <li role="presentation" class="active"><a ui-sref="pf-flocks">Flocks</a></li>
+        <li role="presentation"><a ui-sref="pf-map">Map</a></li>
+        <li role="presentation"><a ui-sref="pf-you">You</a></li>
+    </ul>
+
+    <div class="row" ng-show="emptyFlocks">
+        <div class="col-md-12">
+            <div class="row" style="margin-top: 30px;">
+                <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-12">
+                    <div class="message-box">
+                        <p>There are no messges in this flock. Messages more than 24hours old automatically disappear. Type a message or share a photo below to start conversation.</p>
+                        <div class="ticker"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="padding:40px 0 20px 0px;">
+                <div class="col-md-12">
+                    <div class="header">
+                        <img class="animated" src="images/header_app_icon.png" alt="Peck" peck-bird hm-double-tap="dblTouchMe" />
+                        <div id="bubble-area"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" style="margin-top: 30px;" ng-hide="emptyFlocks">
+        <div class="col-md-3" ng-controller="FlockListController">
+
+            <div class="list-group">
+                <a ng-click="selectFlock(flock)" href="#" class="list-group-item" ng-class="{'active': isActive(flock) }" ng-repeat="flock in flocks">
+                    <h4 class="list-group-item-heading">{{flock.name || users_name[flock.uuid]}}</h4>
+                    <p class="small"><span class="glyphicon glyphicon-time"></span> <span am-time-ago="flock.lastMessage.dateSent"></span></p>
+                    <p class="list-group-item-text" ng-class="{'chat-unread': flock.hasUnread}">{{flock.lastMessage.pn_apns.aps.alert}}</p>
+                </a>
+            </div>
+
+
+        </div>
+        <div class="col-md-6 col-md-offset-1">
+            <div style="padding-bottom:25px;" ng-controller="UserListController">
+                <h3>Who's Here?</h3>
+                <ul class="list-inline">
+                    <li ng-repeat="user in users">
+                        <img ng-src="{{user.avatarUrl}}"  class="animated" peck-bird peck-uuid="user.uuid" alt="{{user.contact.firstName}} {{user.contact.lastName}}" title="{{user.contact.firstName}} {{user.contact.lastName}}" style="width: 64px;" />
+                    </li>
+                </ul>
+                <div class="pull-right">
+                    <input class="btn btn-primary btn-sm" type="button" value="Mute" ng-click="muteFlock()">
+                    <input class="btn btn-danger btn-sm" type="button" value="Leave" ng-click="leaveFlock()">
+                </div>
+                <div class="clearfix"></div>
+            </div>
+
+            <div class="panel panel-primary" ng-controller="ChatController">
+                <div class="panel-heading">
+                    <div class="input-group" ng-show="editableTitle">
+                        <input type="text" class="input-sm form-control" ng-model="flock.name" />
+                        <span class="input-group-btn">
+                            <input class="btn btn-success btn-sm" type="button" value="Rename" ng-click="changeTitle()" />
+                            <input class="btn btn-danger btn-sm" type="button" value="Cancel" ng-click="cancelEditable()" />
+                        </span>
+                    </div>
+                    <h3 class="panel-title" ng-hide="editableTitle">
+                        <span>{{flock.name || users_name[flock.uuid]}}</span>
+                        <span class="glyphicon glyphicon-pencil edit-flock-name" ng-click="changeEditable()"></span>
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    <ul class="chat" id="chat">
+                        <li class="clearfix message" ng-repeat="message in messages">
+                            <div ng-if="(message.type == 'message') && (message.user.uuid == user.uuid)">
+                                <div ng-controller="MessageController">
+                                    <span class="chat-img pull-right">
+                                        <img ng-src="{{message.user.avatarUrl}}" alt="User Avatar" class="img-circle avatar" />
+                                    </span>
+                                    <div class="chat-body right clearfix">
+                                        <p>
+                                            <small class="text-muted message-time"><span class="glyphicon glyphicon-time"></span> <span am-time-ago="message.dateSent"></span></small>
+                                            <strong class="pull-right primary-font">{{message.user.contact.firstName}} {{message.user.contact.lastName}}</strong>
+                                        </p>
+                                        <p>{{message.messageText}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div ng-if="(message.type == 'message') && !(message.user.uuid == user.uuid)">
+                                <div ng-controller="MessageController">
+                                    <span class="chat-img pull-left">
+                                        <img ng-src="{{message.user.avatarUrl}}" alt="User Avatar" class="img-circle avatar" />
+                                    </span>
+                                    <div class="chat-body left clearfix">
+                                        <p>
+                                            <strong class="primary-font">{{message.user.contact.firstName}} {{message.user.contact.lastName}}</strong>
+                                            <small class="pull-right text-muted message-time"><span class="glyphicon glyphicon-time"></span> <span am-time-ago="message.dateSent"></span></small>
+                                        </p>
+                                        <p>{{message.messageText}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div ng-if="message.type == 'stack'">
+                                <div ng-controller="StackController" >
+                                    <div ng-if="stack.assets.length > 1">
+                                        <carousel interval="-1">
+                                            <slide ng-repeat="slide in slides" active="slide.active">
+                                                <img ng-src="http://qa.peck.me:8080/api/v5/assets/thumb/{{slide.uuid}}/608x608.jpg" alt="{{stack.location.name}}" class="img-responsive inline-block center-block">
+                                                <div class="carousel-caption">{{stack.location.name}}</div>
+                                            </slide>
+                                        </carousel>
+                                    </div>
+                                    <div ng-if="stack.assets.length == 1" class="stack">
+                                        <img ng-src="http://qa.peck.me:8080/api/v5/assets/thumb/{{stack.assets[0].uuid}}/608x608.jpg" class="img-responsive inline-block" alt="{{stack.location.name}}"/>
+                                        <div class="caption post-stack">
+                                            <p><strong>{{stack.location.name}}</strong><p>
+                                            <p>{{timesince}}</p> 
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="panel-footer">
+                    <form ng-submit='publish()'>
+                        <div class="input-group">
+                            <input id="btn-input" type="text" class="form-control input-sm" ng-model='newMessage' placeholder="Type your message here..." />
+                            <span class="input-group-btn">
+                                <input class="btn btn-warning btn-sm" id="btn-chat"  type="submit" value="Send">
+                            </span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+

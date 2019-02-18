@@ -1,0 +1,310 @@
+.color-orange {
+    color: #FF9F00;
+}
+
+.color-white {
+    color: #FFFFFF;
+}
+
+.intro-section-0 {
+    background-color: #f6f6f6;
+}
+
+.intro-section-1 {
+    background-color: #02BAD8;
+}
+
+.intro-section-2,
+.intro-section-3,
+.intro-section-4 {
+    background-color: #FF9F00;
+}
+
+.badge-peck {
+    position: relative;
+    top: -170px;
+    left: 150px;
+    font-size: xx-large;
+}
+
+.nav-sidebar li {
+    margin-bottom: 15px;
+    border-bottom: 1px dotted #02BAD8;
+}
+
+.nav-sidebar > .active > a,
+.nav-sidebar > .active > a:hover,
+.nav-sidebar > .active > a:focus {
+  color: #fff;
+  background-color: #FF9F00;
+}
+
+/* chat */
+.chat {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.chat li.message {
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px dotted #B3A9A9;
+}
+.chat .chat-body {
+    padding-top: 10px;
+}
+.chat .chat-body.left {
+    margin-left: 60px;
+}
+.chat .chat-body.right {
+    margin-right: 60px;
+}
+.chat li .chat-body p {
+    margin: 0;
+    color: #777777;
+}
+.message-time .glyphicon {
+    font-size: 85%;
+    margin-right: 5px;
+}
+
+
+img.avatar {
+    width: 60px;
+}
+
+p.chat-unread {
+    font-weight: bold;
+}
+p.chat-unread::before { 
+    content: "\2022";
+}
+.friends {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.friends li.friend {
+    margin-bottom: 10px;
+    padding-bottom: 20px;
+    border-bottom: 1px dotted #B3A9A9;
+}
+.friends .friends-body.left {
+    margin-left: 90px;
+}
+.friends li .chat-body p {
+    margin: 0;
+    color: #777777;
+}
+.friends-img img.avatar {
+    width: 75px;
+}
+
+.header {
+    position: relative;
+    display: table;
+    margin: 0 auto;
+}
+.bubble {
+    width: 20px;
+    height: 20px;
+    background: #FF9F00;
+    border-radius: 200px;
+    -moz-border-radius: 200px;
+    -webkit-border-radius: 200px;
+    position: absolute;
+    /*left: 85px;*/
+    left: 50%;
+    margin-left: -10px;
+    opacity: 0.8;
+    z-index: 10;
+}
+.bubble-area {
+    position: relative;
+    display: block;
+}
+.bubble-area .bubble {
+    margin-top: -130px;
+    margin-left: 0px;
+    border-radius: 50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+}
+
+.friends-img {
+    position: relative;
+}
+.friends-img .bubble {
+    margin-top: -100px;
+}
+
+.error-msg {
+    color: #FF0000;
+    margin-left: 20px;
+}
+
+.table-valign-middle td {
+    vertical-align: middle !important;
+}
+.avatar-area {
+    width: 180px;
+    height: 180px;
+    display: block;
+    margin: 0 auto;
+    position: relative;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+}
+.avatar-area img {
+    width: 100%;
+    height: 100%;
+}
+.avatar-area .edit-icon {
+    width: 30px;
+    height: 30px;
+    background: url("../images/edit_icon.png") no-repeat scroll 0 0 transparent;
+    background-size: 30px 30px;
+    display: block;
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    cursor: pointer;
+}
+
+.edit-flock-name {
+    float: right;
+    cursor: pointer;
+}
+
+/* message box */
+.message-box {
+    width: 100%;
+    background-color: #f5a623;
+    color: #ffffff;
+    font-size: 30px;
+    padding: 35px;
+    border-radius: 30px;
+    position: relative;
+    z-index: 1;
+}
+.message-box .ticker {
+    background: url("../images/box_ticker.png") no-repeat scroll 0 0 transparent;
+    position: absolute;
+    right: 30px;
+    bottom: -44px;
+    display: block;
+    width: 93px;
+    height: 44px;
+}
+
+/* margin */
+.marginT10 { margin-top: 10px; }
+.marginT20 { margin-top: 20px; }
+.marginT30 { margin-top: 30px; }
+.marginB10 { margin-bottom: 10px; }
+.marginB20 { margin-bottom: 20px; }
+.marginB30 { margin-bottom: 30px; }
+.marginL10 { margin-left: 10px; }
+.marginL20 { margin-left: 20px; }
+.marginL30 { margin-left: 30px; }
+.marginR10 { margin-right: 10px; }
+.marginR20 { margin-right: 20px; }
+.marginR30 { margin-right: 30px; }
+
+/* padding */
+.paddingT10 { padding-top: 10px; }
+.paddingT20 { padding-top: 20px; }
+.paddingT30 { padding-top: 30px; }
+.paddingB10 { padding-bottom: 10px; }
+.paddingB20 { padding-bottom: 20px; }
+.paddingB30 { padding-bottom: 30px; }
+.paddingL10 { padding-left: 10px; }
+.paddingL20 { padding-left: 20px; }
+.paddingL30 { padding-left: 30px; }
+.paddingR10 { padding-right: 10px; }
+.paddingR20 { padding-right: 20px; }
+.paddingR30 { padding-right: 30px; }
+
+.x1 {
+    -webkit-animation: moveclouds 15s linear infinite, sideWays 6s ease-in-out alternate;
+    -moz-animation: moveclouds 15s linear infinite, sideWays 6s ease-in-out alternate;
+    -o-animation: moveclouds 15s linear infinite, sideWays 6s ease-in-out alternate;
+}
+
+.x2 {
+    -webkit-animation: moveclouds 19s linear infinite, sideWays 5s ease-in-out infinite alternate;
+    -moz-animation: moveclouds 19s linear infinite, sideWays 5s ease-in-out infinite alternate;
+    -o-animation: moveclouds 19s linear infinite, sideWays 5s ease-in-out infinite alternate;
+}
+.x3 {
+    -webkit-animation: moveclouds 20s linear infinite, sideWays 4s ease-in-out infinite alternate;
+    -moz-animation: moveclouds 20s linear infinite, sideWays 4s ease-in-out infinite alternate;
+    -o-animation: moveclouds 20s linear infinite, sideWays 4s ease-in-out infinite alternate;
+}
+.x4 {
+    -webkit-animation: moveclouds 18s linear infinite, sideWays 2s ease-in-out infinite alternate;
+    -moz-animation: moveclouds 18s linear infinite, sideWays 2s ease-in-out infinite alternate;
+    -o-animation: moveclouds 18s linear infinite, sideWays 2s ease-in-out infinite alternate;
+}
+.x5 {
+    -webkit-animation: moveclouds 10s linear infinite, sideWays 1s ease-in-out infinite alternate;
+    -moz-animation: moveclouds 10s linear infinite, sideWays 1s ease-in-out infinite alternate;
+    -o-animation: moveclouds 10s linear infinite, sideWays 1s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes moveclouds { 
+    0% { 
+        top: 100px;
+    }
+    100% { 
+        top: -500px;
+    }
+}
+
+@-webkit-keyframes sideWays { 
+    0% { 
+        margin-left:0px;
+    }
+    100% { 
+        margin-left:50px;
+    }
+}
+
+@-moz-keyframes moveclouds {     
+    0% { 
+        top: 0px;
+    }
+
+    100% { 
+        top: -500px;
+    }
+}
+
+@-moz-keyframes sideWays {
+    0% {
+        margin-left:0px;
+    }
+    100% {
+        margin-left:50px;
+    }
+}
+@-o-keyframes moveclouds {
+    0% { 
+        top: 0px;
+    }
+    100% { 
+        top: -500px;
+    }
+}
+
+@-o-keyframes sideWays {
+    0% {
+        margin-left:0px;
+    }
+    100% {
+        margin-left:50px;
+    }
+}

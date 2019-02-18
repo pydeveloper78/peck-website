@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="row" style="padding:40px 0 20px 0px;">
+        <div class="col-md-12">
+            <div class="header">
+                <img class="animated" src="images/header_app_icon.png" alt="Peck" peck-bird peck-callback="callbackForIntro()" hm-double-tap="dblTouchMe"/>
+                <div id="bubble-area"></div>
+            </div>
+        </div>
+    </div>
+    <div class="jumbotron intro-section-0 intro-section-{{pecks}}">
+        <div class="row">
+        <div class="col-md-12" >
+            <div ng-show="pecks == 0" class="ng-hide">
+                <h3 class="text-center">Peck is a quick way to say "Hey" or "What are you up to?"</h3>
+                <h3 class="text-center color-orange">Peck the bird to learn more.</h3>
+            </div>
+            <div ng-show="pecks == 1" class="ng-hide">
+                <h3 class="text-center color-white">Your Peck is a signal</h3>
+                <p class="text-center color-white">This signal will mean different things to different people. If you Peck a friend, maybe you want to talk. If you Peck your favorite coffee shop, maybe you're looking for a quick pick-me-up.</p>
+                <p class="text-center color-white">Peck again to continue.</p>
+            </div>
+            <div ng-show="(pecks >= 2) && (pecks < 5)" class="ng-hide">
+                <h3 class="text-center color-white">Amplify</h3>
+                <p class="text-center color-white">You can amplify your signal by Pecking repeatedly. Or by Pecking more often.</p>
+                <p class="text-center color-white">Go ahead, really get our attention!</p>
+            </div>
+            <div ng-show="pecks > 4" class="ng-hide">
+                <h3 class="text-center">Try It</h3>
+                <p class="text-center">Peck someone you know:</p>
+                <ul>
+                    <li><a href="/#/~narendra">Narendra</a></li>
+                    <li><a href="/#/~daniel">Daniel</a></li>
+                    <li><a href="/#/~zakk">Zakk</a></li>
+                </ul>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>

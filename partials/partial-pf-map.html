@@ -1,0 +1,12 @@
+<div class="container">
+    <ul class="nav nav-tabs">
+        <li role="presentation"><a ui-sref="pf-home">Home</a></li>
+        <li role="presentation"><a ui-sref="pf-flocks">Flocks</a></li>
+        <li role="presentation" class="active"><a ui-sref="pf-map">Map</a></li>
+        <li role="presentation"><a ui-sref="pf-you">You</a></li>
+    </ul>
+</div>
+<div map-lazy-load="https://maps.google.com/maps/api/js" style="margin-top: 30px;">
+    <map center="41,-97" zoom="5" style="height: 600px;">
+    </map>
+</div>

@@ -1,0 +1,50 @@
+<div class="container">
+    <ul class="nav nav-tabs">
+        <li role="presentation" class="active"><a ui-sref="pf-home">Home</a></li>
+        <li role="presentation"><a ui-sref="pf-flocks">Flocks</a></li>
+        <li role="presentation"><a ui-sref="pf-map">Map</a></li>
+        <li role="presentation"><a ui-sref="pf-you">You</a></li>
+    </ul>
+
+    <div class="row" style="margin-top: 30px;">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-primary">
+                <div class="panel-heading"><h3 class="panel-title">Friends</h3></div>
+                <div class="panel-body">
+                    <ul class="friends">
+                        <li class="clearfix friend animated fadeIn" ng-repeat="friend in friends">
+                            <span class="friends-img pull-left">
+                                <img ng-src="{{friend.avatarUrl}}" peck-uuid="friend.uuid" alt="User Avatar" class="img-circle avatar animated" peck-bird />
+
+                                <div id="bubble-area-{{friend.uuid}}"></div>
+                            </span>
+                            <div class="pull-right">
+                                <!-- Split button -->
+                                <div class="btn-group" dropdown>
+                                    <button id="split-button" type="button" class="btn btn-primary" ng-click="onReply(friend.uuid)">Reply</button>
+                                    <button type="button" class="btn btn-primary" dropdown-toggle>
+                                        <span class="caret"></span>
+                                        <span class="sr-only">Split button!</span>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu" aria-labelledby="split-button">
+                                        <li role="menuitem"><a href="" ng-click="onAddToFlock(friend.uuid)">Add to Flock</a></li>
+                                        <li role="menuitem"><a href="/#/friends/{{friend.uuid}}">View Profile</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="friends-body left clearfix">
+                                <p><strong class="primary-font">{{friend.contact.firstName}} {{friend.contact.lastName}}</strong></p>
+                                <p>{{friend.statusMessage}}</p>
+                                <small class="pull-right color-orange" ng-hide="friend.pecksOut == 0">{{friend.pecksOut}} pecks</small>
+
+                                <p><span class="color-orange" ng-repeat="pecks in friend.pecks | limitTo:10"><!--&#x1F425;-->k </span></p>
+
+
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

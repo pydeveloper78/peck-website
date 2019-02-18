@@ -1,0 +1,28 @@
+<div class="container">
+    <ul class="nav nav-tabs">
+        <li role="presentation" class="active"><a ui-sref="pf-home">Home</a></li>
+        <li role="presentation"><a ui-sref="pf-flocks">Flocks</a></li>
+        <li role="presentation"><a ui-sref="pf-map">Map</a></li>
+        <li role="presentation"><a ui-sref="pf-you">You</a></li>
+    </ul>
+
+    <div class="row" style="margin-top: 30px;">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="panel">
+                <div class="panel-heading"><h3 class="panel-title">Flocks</h3></div>
+                <div class="panel-body">
+                    <div class="list-group">
+                        <a ng-click="selectFlock(flock)" href="#" class="list-group-item" ng-class="{'active': isActive(flock) }" ng-repeat="flock in flocks">
+                            <h4 class="list-group-item-heading">{{flock.name || users_name[flock.uuid]}}</h4>
+                            <p class="small"><span class="glyphicon glyphicon-time"></span> <span am-time-ago="flock.lastMessage.dateSent"></span></p>
+                        </a>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <button class="btn btn-primary" ng-click="onAddToFlock()">Add To Flock</button>
+                    <button class="btn btn-danger" ng-click="onCancel()">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
